@@ -1,5 +1,9 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using Microwave.Classes.Boundary;
+using Microwave.Classes.Interfaces;
+using Microwave.Classes.Boundary;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Microwave.Test.Unit
@@ -7,18 +11,21 @@ namespace Microwave.Test.Unit
     [TestFixture]
     public class BuzzerTest
     {
-        //private Button uut;
+        private Buzzer uut;
+        private IOutput output;
 
         [SetUp]
         public void Setup()
         {
-            //uut = new Button();
+            output = Substitute.For<IOutput>();
+            uut = new Buzzer(output);
         }
 
         [Test]
-        public void TestForJenkins()
+        public void CookingIsDoneOutputIsCalledThrice()
         {
-            Assert.That(true);
+            uut.CookingIsDone();
+            output.ReceivedWithAnyArgs(3).OutputLine(default);
         }
     }
 }
