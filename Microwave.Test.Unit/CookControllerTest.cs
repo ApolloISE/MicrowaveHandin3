@@ -89,5 +89,14 @@ namespace Microwave.Test.Unit
             uut.ChangeCookingTime(30);
             timer.ReceivedWithAnyArgs(1).Start(default);
         }
+
+        [Test]
+        public void Cooking_Get_Time_remaining()
+        {
+            uut.StartCooking(50, 60);
+           var x = uut.GetTimeRemaining();
+
+           Assert.That(x, Is.EqualTo(timer.TimeRemaining));
+        }
     }
 }
