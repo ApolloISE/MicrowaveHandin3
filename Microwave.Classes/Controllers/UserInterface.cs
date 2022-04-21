@@ -78,7 +78,7 @@ namespace Microwave.Classes.Controllers
                     myDisplay.ShowTime(time, 0);
                     break;
                 case States.COOKING:
-                    myCooker.StartCooking(powerLevel,myCooker.GetTimeRemaining()+1);
+                    myCooker.ChangeCookingTime(myCooker.GetTimeRemaining()+30);
                     break;
             }
         }

@@ -48,10 +48,11 @@ namespace Microwave.App
             while (true)
             {
                 var ch = Console.ReadLine()[0];
-                if (ch == 'c')
-                {
-                    timeButton.Press();
-                }
+                 if (ch == 'c')
+                 {
+                     timeButton.Press();
+                 }
+                
             }
 
             System.Console.ReadLine();
