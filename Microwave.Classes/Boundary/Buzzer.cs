@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using Microwave.Classes.Interfaces;
 
 namespace Microwave.Classes.Boundary
@@ -16,6 +17,7 @@ namespace Microwave.Classes.Boundary
         {
             for (int i = 0; i < 3; ++i)
             {
+                Thread.Sleep(200);
                 _output.OutputLine("Beep Boop");
             }
         }
