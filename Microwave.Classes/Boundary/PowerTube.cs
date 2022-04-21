@@ -8,10 +8,19 @@ namespace Microwave.Classes.Boundary
         private IOutput myOutput;
 
         private bool IsOn = false;
+        public int MaxPower {
+            set {
+                if (value > 0 && value <= 1200)
+                {
+                    MaxPower = value;
+                }
+            }
+        }
 
-        public PowerTube(IOutput output)
+        public PowerTube(IOutput output, int maxPower)
         {
             myOutput = output;
+            MaxPower = maxPower;
         }
 
         public void TurnOn(int power)
