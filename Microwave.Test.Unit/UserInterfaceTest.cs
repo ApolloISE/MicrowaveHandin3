@@ -353,6 +353,20 @@ namespace Microwave.Test.Unit
 
             buzzer.Received(1).CookingIsDone();
         }
+        [Test]
+        public void Cooking_Added_Ekstra_Time() 
+        {
+            powerButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            // Now in SetPower
+            timeButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            // Now in SetTime
+            startCancelButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            // Now in cooking
+            timeButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            // 30 seconds added to the cooking timer
+            cooker.ReceivedWithAnyArgs(1).ChangeCookingTime(default);
+        }
+
 
     }
 
