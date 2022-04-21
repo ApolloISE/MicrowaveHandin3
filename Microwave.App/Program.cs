@@ -45,6 +45,15 @@ namespace Microwave.App
             System.Console.WriteLine("When you press enter, the program will stop");
             // Wait for input
 
+            while (true)
+            {
+                var ch = Console.ReadLine()[0];
+                if (ch == 'c')
+                {
+                    timeButton.Press();
+                }
+            }
+
             System.Console.ReadLine();
         }
     }

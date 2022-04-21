@@ -44,6 +44,11 @@ namespace Microwave.Classes.Controllers
             isCooking = true;
         }
 
+        public int GetTimeRemaining()
+        {
+            return myTimer.TimeRemaining;
+        }
+
         public void Stop()
         {
             isCooking = false;
