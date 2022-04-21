@@ -20,7 +20,7 @@ namespace Microwave.Test.Unit
             output = Substitute.For<IOutput>();
             uut = new Buzzer(output);
         }
-
+         
         [Test]
         public void CookingIsDoneOutputIsCalledThrice()
         {
