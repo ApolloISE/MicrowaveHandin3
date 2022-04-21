@@ -6,9 +6,10 @@ namespace Microwave.Classes.Boundary
     public class PowerTube : IPowerTube
     {
         private IOutput myOutput;
-
         private bool IsOn = false;
+        private int _maxPower;
         public int MaxPower {
+            get => _maxPower;
             set {
                 if (value > 0 && value <= 1200)
                 {
