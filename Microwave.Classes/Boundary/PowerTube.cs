@@ -11,9 +11,9 @@ namespace Microwave.Classes.Boundary
         public int MaxPower {
             get => _maxPower;
             set {
-                if (value > 0 && value <= 1200)
+                if (value >= 50 && value <= 1200)
                 {
-                    MaxPower = value;
+                    _maxPower = value;
                 }
             }
         }
@@ -26,9 +26,9 @@ namespace Microwave.Classes.Boundary
 
         public void TurnOn(int power)
         {
-            if (power < 1 || 700 < power)
+            if (power < 1 || MaxPower < power)
             {
-                throw new ArgumentOutOfRangeException("power", power, "Must be between 1 and 700 (incl.)");
+                throw new ArgumentOutOfRangeException("power", power, "Must be between 1 and 1200 (incl.)");
             }
 
             if (IsOn)
