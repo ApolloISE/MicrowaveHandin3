@@ -83,5 +83,11 @@ namespace Microwave.Test.Unit
             powerTube.Received().TurnOff();
         }
 
+        [Test]
+        public void Cooking_Added_Ekstra_Time_To_Cooking() 
+        {
+            uut.ChangeCookingTime(30);
+            timer.ReceivedWithAnyArgs(1).Start(default);
+        }
     }
 }
