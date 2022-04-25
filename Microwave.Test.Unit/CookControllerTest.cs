@@ -23,7 +23,6 @@ namespace Microwave.Test.Unit
             timer = Substitute.For<ITimer>();
             display = Substitute.For<IDisplay>();
             powerTube = Substitute.For<IPowerTube>();
-
             uut = new CookController(timer, display, powerTube, ui);
         }
 
@@ -97,6 +96,14 @@ namespace Microwave.Test.Unit
            var x = uut.GetTimeRemaining();
 
            Assert.That(x, Is.EqualTo(timer.TimeRemaining));
+        }
+
+        [TestCase(200)]
+        [TestCase(400)]
+        public void CookControllerGetsPowerTubeMaxPower(int power)
+        {
+            powerTube.MaxPower.Returns(power);
+            Assert.That(uut.GetMaxPower(),Is.EqualTo(power));
         }
     }
 }
