@@ -17,7 +17,7 @@ namespace Microwave.Classes.Boundary
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("MaxPower", MaxPower, "Must be between 1 and 1200 (incl.)");
+                    throw new ArgumentOutOfRangeException("MaxPower", MaxPower, "Must be between 50 and 1200 (incl.)");
                 }
             }
         }
